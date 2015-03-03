@@ -6,8 +6,13 @@ package discountstrategy;
  */
 public class PercentOffDiscount implements DiscountStrategy {
 
-    private double percentOffDiscount = .2;
+    private double percentOffDiscount;
 
+    public PercentOffDiscount() {
+        percentOffDiscount = .2;
+    }
+
+    
     /**
      * 
      * @param quantityPurchased
@@ -31,6 +36,14 @@ public class PercentOffDiscount implements DiscountStrategy {
         double price = unitPrice - getDiscountAmount(quantityPurchased, unitPrice);
 
         return price;
+    }
+
+    public double getPercentOffDiscount() {
+        return percentOffDiscount;
+    }
+
+    public void setPercentOffDiscount(double percentOffDiscount) {
+        this.percentOffDiscount = percentOffDiscount;
     }
 
 }
