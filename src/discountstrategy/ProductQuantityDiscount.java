@@ -20,10 +20,10 @@ public class ProductQuantityDiscount implements DiscountStrategy {
     @Override
     public double getDiscountAmount(int quantityPurchased, double unitPrice) throws IllegalArgumentException {
         if (quantityPurchased <= ZERO) {
-            throw new IllegalArgumentException("Purchased quantity must be greater than 0.");
+            throw new IllegalArgumentException(ApplicationConstants.UNIT_QTY_ERROR);
         }
         if (unitPrice < ZERO) {
-            throw new IllegalArgumentException("Unit price cannot be less than 0.");
+            throw new IllegalArgumentException(ApplicationConstants.UNIT_PRICE_ERROR);
         }
         double amount = 0;
         if (quantityPurchased >= minQuantity) {
