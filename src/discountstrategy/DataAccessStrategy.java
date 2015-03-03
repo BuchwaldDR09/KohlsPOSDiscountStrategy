@@ -4,7 +4,7 @@ package discountstrategy;
  * 
  * @author Dan
  */
-public interface DatabaseStrategy {
+public interface DataAccessStrategy {
 
     public abstract Customer customerSearch(String customerNumber);
 

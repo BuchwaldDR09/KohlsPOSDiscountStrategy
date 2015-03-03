@@ -14,7 +14,7 @@ public class Receipt {
 
     private ReceiptLineItem[] receiptLineItem = new ReceiptLineItem[0];
     private Customer customer;
-    private DatabaseStrategy dataAccessStrategy;
+    private DataAccessStrategy dataAccessStrategy;
     private double salesTaxRate = .056;
     
     private NumberFormat numberFormatter = NumberFormat.getCurrencyInstance();
@@ -24,7 +24,7 @@ public class Receipt {
      * @param customerNumber
      * @param dataAccessStrategy
      */
-    public Receipt(String customerNumber, DatabaseStrategy dataAccessStrategy) throws IllegalArgumentException {
+    public Receipt(String customerNumber, DataAccessStrategy dataAccessStrategy) throws IllegalArgumentException {
 
         if (customerNumber == null || customerNumber.length() == ApplicationConstants.ZERO) {
             throw new IllegalArgumentException(ApplicationConstants.CUSTOMER_NUMBER_ERROR);
