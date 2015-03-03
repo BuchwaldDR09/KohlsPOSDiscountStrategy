@@ -15,7 +15,7 @@ public class Receipt {
     private ReceiptLineItem[] receiptLineItem = new ReceiptLineItem[0];
     private Customer customer;
     private DataAccessStrategy dataAccessStrategy;
-    private double salesTaxRate = .056;
+    
     
     private NumberFormat numberFormatter = NumberFormat.getCurrencyInstance();
 
@@ -107,7 +107,7 @@ public class Receipt {
             discountTotal = discountTotal + lineItems.getDiscountAmount();
             System.out.println("|  " + lineItems.getProductCode() + "\t" + lineItems.getProductDescription() + "\t\t" + lineItems.getQuantityPurchased() + "\t" + numberFormatter.format(lineItems.getUnitPrice()) + "\t\t" + numberFormatter.format(lineItems.getDiscountAmount()) + "\t\t" + numberFormatter.format(lineItems.getLineItemTotal()) + "\t\t|");
         }
-        taxTotal = subtotal * salesTaxRate;
+        taxTotal = subtotal * ApplicationConstants.SALES_TAX;
         grandTtotal = subtotal + taxTotal;
         System.out.println("|-------------------------------------------------------------------------------------------------------|");
 
