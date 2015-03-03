@@ -6,8 +6,6 @@ package discountstrategy;
  */
 public class ProductQuantityDiscount implements DiscountStrategy {
 
-    private int minQuantity = 5;
-    private double percentOff = .1;
     public static final int ZERO = 0;
 
     /**
@@ -26,8 +24,8 @@ public class ProductQuantityDiscount implements DiscountStrategy {
             throw new IllegalArgumentException(ApplicationConstants.UNIT_PRICE_ERROR);
         }
         double amount = 0;
-        if (quantityPurchased >= minQuantity) {
-            amount = unitPrice * quantityPurchased * percentOff;
+        if (quantityPurchased >= ApplicationConstants.MIN_QTY_FOR_DISCOUNT) {
+            amount = unitPrice * quantityPurchased * ApplicationConstants.QTY_DISCOUNT_PERCENT_OFF;
         }
         return amount;
     }
@@ -50,7 +48,7 @@ public class ProductQuantityDiscount implements DiscountStrategy {
 
         double price = 0;
 
-        if (quantityPurchased >= minQuantity) {
+        if (quantityPurchased >= ApplicationConstants.MIN_QTY_FOR_DISCOUNT) {
             price -= getDiscountAmount(quantityPurchased, unitPrice);
         }
 

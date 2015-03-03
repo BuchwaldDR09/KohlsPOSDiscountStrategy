@@ -8,11 +8,7 @@ public class PercentOffDiscount implements DiscountStrategy {
 
     private double percentOffDiscount;
 
-    public PercentOffDiscount() {
-        percentOffDiscount = .2;
-    }
-
-    
+        
     /**
      * 
      * @param quantityPurchased
@@ -21,7 +17,7 @@ public class PercentOffDiscount implements DiscountStrategy {
      */
     @Override
     public double getDiscountAmount(int quantityPurchased, double unitPrice) {
-        double amount = unitPrice * quantityPurchased * percentOffDiscount;
+        double amount = unitPrice * quantityPurchased * ApplicationConstants.PERCENT_OFF_DISCOUNT;
         return amount;
     }
 
