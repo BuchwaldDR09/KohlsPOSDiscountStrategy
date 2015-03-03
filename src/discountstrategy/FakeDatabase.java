@@ -20,7 +20,7 @@ public class FakeDatabase implements DataAccessStrategy {
 
     private Product[] products = {
         new Product("878841132", "LEVI JEANS      ", 45.99, percentOffDiscount),
-        new Product("133562060", "BROWN UGG FUR BOOTS", 69.99, percentOffDiscount),
+        new Product("133562060", "BROWN UGG FUR BOOTS", 69.99, quantityDiscount),
         new Product("009270653", "1 PAIR OF SOCKS   ", 1.99, percentOffDiscount),
         new Product("008498255", "COLEMAN HIKING BOOTS", 41.99, percentOffDiscount),
         new Product("001357375", "4 PACK OF SOCKS  ", 2.99, quantityDiscount)
