@@ -8,13 +8,13 @@ public class CashRegister {
 
     
     private Receipt receipt;
-    private DataAccessStrategy dataAccessStrategy;
+    private DatabaseStrategy dataAccessStrategy;
 
     /**
      * 
      * @param dataAccessStrategy 
      */
-    public CashRegister(DataAccessStrategy dataAccessStrategy) {
+    public CashRegister(DatabaseStrategy dataAccessStrategy) {
         this.dataAccessStrategy = dataAccessStrategy;
 
     }

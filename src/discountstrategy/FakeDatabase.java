@@ -13,7 +13,7 @@ package discountstrategy;
  */
 
 
-public class FakeDatabase implements DataAccessStrategy {
+public class FakeDatabase implements DatabaseStrategy {
 
     private DiscountStrategy percentOffDiscount = new PercentOffDiscount();
     private DiscountStrategy quantityDiscount = new ProductQuantityDiscount();
