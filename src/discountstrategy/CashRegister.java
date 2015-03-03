@@ -32,7 +32,7 @@ public class CashRegister {
      * @param productCode
      * @param quantity 
      */
-    public final void addLineItem(String productCode, int quantity) {
+    public final void scanProducts(String productCode, int quantity) {
         receipt.addLineItem(productCode, quantity);
     }
 

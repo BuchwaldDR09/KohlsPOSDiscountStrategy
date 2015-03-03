@@ -14,14 +14,14 @@ public class Startup {
         CashRegister sale = new CashRegister(new FakeDatabase());
         
         sale.startNewSale("00000001");
-        sale.addLineItem("878841132", 3);  
-        sale.addLineItem("008498255", 1);
+        sale.scanProducts("878841132", 3);  
+        sale.scanProducts("008498255", 1);
         sale.completeSale();
 
         sale.startNewSale("00000002");
-        sale.addLineItem("133562060", 1);
-        sale.addLineItem("009270653", 4);
-        sale.addLineItem("008498255", 1);
+        sale.scanProducts("133562060", 1);
+        sale.scanProducts("009270653", 4);
+        sale.scanProducts("008498255", 1);
         sale.completeSale();
         
         } catch (IllegalArgumentException e) {
