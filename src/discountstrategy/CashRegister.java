@@ -16,7 +16,7 @@ public class CashRegister {
      */
     public CashRegister(DataAccessStrategy dataAccessStrategy) {
         this.dataAccessStrategy = dataAccessStrategy;
-//        this.receiptStrategy = receiptStrategy;
+
     }
 
     /**

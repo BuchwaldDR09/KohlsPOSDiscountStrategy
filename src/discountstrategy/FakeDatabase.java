@@ -38,7 +38,7 @@ public class FakeDatabase implements DataAccessStrategy {
     @Override
     public final Product productSearch(String productCode) {
         if (productCode == null || productCode.isEmpty()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ApplicationConstants.PRODUCT_CODE_ERROR);
         }
         Product searchResult = null;
         for (Product product : products) {
@@ -48,7 +48,7 @@ public class FakeDatabase implements DataAccessStrategy {
             }
         }
         if (searchResult == null) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ApplicationConstants.NULL_SEARCH);
         }
         return searchResult;
     }
@@ -61,7 +61,7 @@ public class FakeDatabase implements DataAccessStrategy {
     @Override
     public final Customer customerSearch(String customerNumber) {
         if (customerNumber == null || customerNumber.isEmpty()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ApplicationConstants.CUSTOMER_NUMBER_ERROR);
         }
         Customer searchResult = null;
         for (Customer customer : customers) {
@@ -71,7 +71,7 @@ public class FakeDatabase implements DataAccessStrategy {
             }
         }
         if (searchResult == null) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ApplicationConstants.NULL_SEARCH);
         }
         return searchResult;
     }
