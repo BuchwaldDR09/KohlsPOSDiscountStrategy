@@ -8,7 +8,7 @@ public class ReceiptLineItem {
 
     private Product product;
     private int quantityPurchased;
-    public static final int ZERO = 0;
+    //public static final int ZERO = 0;
 
     /**
      * 
@@ -20,7 +20,7 @@ public class ReceiptLineItem {
             throw new IllegalArgumentException(ApplicationConstants.INVALLID_DATABASE);
         }
         this.product = product;
-        if (quantityPurchased < ZERO) {
+        if (quantityPurchased < ApplicationConstants.ZERO) {
             throw new IllegalArgumentException(ApplicationConstants.UNIT_QTY_ERROR);
         }
         this.quantityPurchased = quantityPurchased;

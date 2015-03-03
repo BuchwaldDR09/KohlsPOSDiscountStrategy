@@ -6,7 +6,7 @@ package discountstrategy;
  */
 public class ProductQuantityDiscount implements DiscountStrategy {
 
-    public static final int ZERO = 0;
+    //public static final int ZERO = 0;
 
     /**
      * 
@@ -17,10 +17,10 @@ public class ProductQuantityDiscount implements DiscountStrategy {
      */
     @Override
     public double getDiscountAmount(int quantityPurchased, double unitPrice) throws IllegalArgumentException {
-        if (quantityPurchased <= ZERO) {
+        if (quantityPurchased <= ApplicationConstants.ZERO) {
             throw new IllegalArgumentException(ApplicationConstants.UNIT_QTY_ERROR);
         }
-        if (unitPrice < ZERO) {
+        if (unitPrice < ApplicationConstants.ZERO) {
             throw new IllegalArgumentException(ApplicationConstants.UNIT_PRICE_ERROR);
         }
         double amount = 0;
@@ -39,10 +39,10 @@ public class ProductQuantityDiscount implements DiscountStrategy {
      */
     @Override
     public double getPriceAfterDiscount(int quantityPurchased, double unitPrice) throws IllegalArgumentException {
-        if (quantityPurchased <= ZERO) {
+        if (quantityPurchased <= ApplicationConstants.ZERO) {
             throw new IllegalArgumentException(ApplicationConstants.UNIT_QTY_ERROR);
         }
-        if (unitPrice < ZERO) {
+        if (unitPrice < ApplicationConstants.ZERO) {
             throw new IllegalArgumentException(ApplicationConstants.UNIT_PRICE_ERROR);
         }
 
