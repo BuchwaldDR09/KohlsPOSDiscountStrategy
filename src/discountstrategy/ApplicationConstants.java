@@ -21,6 +21,8 @@ public class ApplicationConstants {
     public static final String INVALLID_DATA_ACCESS_STRATEGY = "A valid Data Access Strategy is requried.";
     public static final String INVALLID_LINE_ITEM = "A valid line item is requried.";
     public static final String NULL_SEARCH = "Your search returned no results.";
+    
+    public static final String RECEIPT_MESSAGE = "Thank you for shopping at Kohls!";
    
     
 }

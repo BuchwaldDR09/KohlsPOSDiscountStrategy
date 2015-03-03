@@ -16,24 +16,24 @@ public class Receipt {
     private Customer customer;
     private DataAccessStrategy dataAccessStrategy;
     private double salesTaxRate = .056;
-    private String receiptMessage = "Thank you for shopping at Kohls!";
-    private NumberFormat nf = NumberFormat.getCurrencyInstance();
+    
+    private NumberFormat numberFormatter = NumberFormat.getCurrencyInstance();
 
     /**
      *
      * @param customerNumber
-     * @param db
+     * @param dataAccessStrategy
      */
-    public Receipt(String customerNumber, DataAccessStrategy db) throws IllegalArgumentException {
+    public Receipt(String customerNumber, DataAccessStrategy dataAccessStrategy) throws IllegalArgumentException {
 
         if (customerNumber == null || customerNumber.length() == ApplicationConstants.ZERO) {
             throw new IllegalArgumentException(ApplicationConstants.CUSTOMER_NUMBER_ERROR);
         }
-        this.customer = db.customerSearch(customerNumber);
-        if (db == null) {
+        this.customer = dataAccessStrategy.customerSearch(customerNumber);
+        if (dataAccessStrategy == null) {
             throw new IllegalArgumentException(ApplicationConstants.INVALLID_DATA_ACCESS_STRATEGY);
         }
-        this.dataAccessStrategy = db;
+        this.dataAccessStrategy = dataAccessStrategy;
 
     }
 
@@ -94,7 +94,7 @@ public class Receipt {
         Date date = new Date();
 
         System.out.println("|*******************************************************************************************************|");
-        System.out.println("|  \t\t\t\t\t" + receiptMessage + "\t\t\t\t|");
+        System.out.println("|  \t\t\t\t\t" + ApplicationConstants.RECEIPT_MESSAGE + "\t\t\t\t|");
         System.out.println("|  \t\t\t\t\t\t" + dateFormat.format(date)+ "\t\t\t\t\t|"); 
         System.out.println("|  Customer Name:  " + customer.getCustomerName() + "\t\t\t\t\t\t\t\t|");
         System.out.println("|  Customer Number: " + customer.getCustomerNumber() + "\t\t\t\t\t\t\t\t\t\t|");
@@ -105,18 +105,18 @@ public class Receipt {
         for (ReceiptLineItem lineItems : receiptLineItem) {
             subtotal = subtotal + lineItems.getLineItemTotal();
             discountTotal = discountTotal + lineItems.getDiscountAmount();
-            System.out.println("|  " + lineItems.getProductCode() + "\t" + lineItems.getProductDescription() + "\t\t" + lineItems.getQuantityPurchased() + "\t" + nf.format(lineItems.getUnitPrice()) + "\t\t" + nf.format(lineItems.getDiscountAmount()) + "\t\t" + nf.format(lineItems.getLineItemTotal()) + "\t\t|");
+            System.out.println("|  " + lineItems.getProductCode() + "\t" + lineItems.getProductDescription() + "\t\t" + lineItems.getQuantityPurchased() + "\t" + numberFormatter.format(lineItems.getUnitPrice()) + "\t\t" + numberFormatter.format(lineItems.getDiscountAmount()) + "\t\t" + numberFormatter.format(lineItems.getLineItemTotal()) + "\t\t|");
         }
         taxTotal = subtotal * salesTaxRate;
         grandTtotal = subtotal + taxTotal;
         System.out.println("|-------------------------------------------------------------------------------------------------------|");
 
-        System.out.println("|  Sub Totals\t\t\t\t\t\t\t\t" +  "\t\t" + nf.format(subtotal) + "\t\t|");
-        System.out.println("|  Total Discount Given\t\t\t\t\t\t\t\t\t"+ nf.format(discountTotal) + "\t\t|");
+        System.out.println("|  Sub Totals\t\t\t\t\t\t\t\t" +  "\t\t" + numberFormatter.format(subtotal) + "\t\t|");
+        System.out.println("|  Total Discount Given\t\t\t\t\t\t\t\t\t"+ numberFormatter.format(discountTotal) + "\t\t|");
         System.out.println("|\t\t\t\t\t\t\t\t\t\t\t\t\t|");
-        System.out.println("|  Sales Tax \t\t\t\t\t\t\t\t\t\t" + nf.format(taxTotal) + "\t\t|");
+        System.out.println("|  Sales Tax \t\t\t\t\t\t\t\t\t\t" + numberFormatter.format(taxTotal) + "\t\t|");
         System.out.println("|*******************************************************************************************************|");
-        System.out.println("|  Sale Total \t\t\t\t\t\t\t\t\t\t" + nf.format(grandTtotal) + "\t\t|");
+        System.out.println("|  Sale Total \t\t\t\t\t\t\t\t\t\t" + numberFormatter.format(grandTtotal) + "\t\t|");
         System.out.println("|*******************************************************************************************************|\n\n");
 
     }
